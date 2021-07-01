@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+</head>
+
+<body class="center">
+  <div id="login_container" class="login_container">
+    <h1>Login</h1>
+    <div class="login_form"><input type="email" autocomplete="email" id="email" name="email" placeholder="Email"></input></div>
+    <div class="login_form"><input type="password" autocomplete="password" id="password" name="password" placeholder="Password"></input></div>
+    <div class="login_form"><a id="forgot_password" href="#">Forgot password?</a></div>
+    <button class="button" type="submit" id="login">Login</button>
+
+  </div>
+  <div id="forgot_password_container" class="login_container" style="opacity: 0; z-index: -1">
+    <h1>Reset your password</h1>
+    <div class="login_form"><input type="email" autocomplete="email" id="reset_email" name="email" placeholder="Email"></input></div>
+    <div class="button_form">
+      <button class="button" type="submit" id="back_button">Back</button>
+      <button class="button" type="submit" id="reset_button">Reset password</button>
+    </div>
+
+  </div>
+
+</body>
+<script src="javascript/login.js"></script>
+</html>

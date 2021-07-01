@@ -1,0 +1,197 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.3.2/firebase-analytics.js"></script>
+
+</head>
+
+<body>
+  <div class="menu">
+    <a class="menu_title">Task dispecer</a>
+    <hr>
+    <div class="menu_buttons">
+      <div class="button" id="searchBtn"><a>
+        <svg class="search_button" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+        <g>
+          <g>
+            <path d="M503.847,432.949l-89.897-89.897c-0.002-0.002-0.003-0.003-0.006-0.006s-0.003-0.003-0.006-0.006l-32.135-32.135
+            c-10.855-10.856-28.522-10.86-39.381,0l-3.939,3.939l-13.571-13.571c26.587-31.878,42.607-72.861,42.607-117.519
+            C367.517,82.432,285.085,0,183.762,0S0.009,82.432,0.009,183.754s82.43,183.754,183.753,183.754
+            c44.658,0,85.641-16.02,117.519-42.606l13.571,13.57l-3.94,3.94c-10.854,10.857-10.854,28.523,0.002,39.381l122.043,122.043
+            c10.881,10.883,28.499,10.886,39.383,0.001l31.506-31.506C514.705,461.474,514.705,443.808,503.847,432.949z M183.762,334.091
+            c-82.896,0-150.337-67.441-150.337-150.337S100.866,33.417,183.762,33.417S334.1,100.858,334.1,183.754
+            S266.658,334.091,183.762,334.091z M338.482,362.103l23.629-23.629l16.388,16.388l-23.629,23.629L338.482,362.103z
+            M452.649,476.269l-74.15-74.15l23.629-23.629l74.15,74.15L452.649,476.269z"/>
+          </g>
+        </g>
+        <g>
+          <g>
+            <path d="M183.76,66.835c-9.228,0-16.709,7.481-16.709,16.709c0,9.228,7.481,16.709,16.709,16.709
+            c46.045,0,83.505,37.457,83.505,83.5c0,9.228,7.481,16.709,16.709,16.709c9.228,0,16.709-7.481,16.709-16.709
+            C300.683,119.284,248.231,66.835,183.76,66.835z"/>
+          </g>
+        </g>
+      </svg>
+      Search
+    </a></div>
+      <div class="button hide" id="admin"><a href="tasks_manager.html">
+        Administration
+      </a></div>
+  </div>
+  <hr>
+  <div class="avatar">
+    <a href = "#" class="dropdown-toggle" id="dropdownUser1">
+      <div style="margin-right:1rem;" id="notification_label">
+        <img id="avatar_img" src="assets/generic-user.png">
+
+      </div>
+      <p id="avatar_name"></p>
+    </a>
+    <ul class="dropdown-menu" id="dropdown-menu">
+      <li><a class="dropdown-item" href="user_preferences.html">Profile</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" id="notifications" href="#">Notifications</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" id="signOut_button" href="#">Sign out</a></li>
+    </ul>
+  </div>
+</div>
+<div class="calendar_days_container">
+  <div class="btn">
+    <a href="#" class="material-icons left_button" id="left_button">chevron_left</a>
+  </div>
+  <div class="btn">
+    <a href="#" class="material-icons right_button" id="right_button">chevron_right</a>
+  </div>
+  <div class="calendar_days">
+    <h1 class="week_day_name">Monday</h1>
+    <p class="week_day_date">Month</p>
+  </div>
+  <div class="calendar_days">
+    <h1 class="week_day_name">Tuesday</h1>
+    <p class="week_day_date">Month</p>
+  </div>
+  <div class="calendar_days">
+    <h1 class="week_day_name">Wednesday</h1>
+    <p class="week_day_date">Month</p>
+  </div>
+  <div class="calendar_days">
+    <h1 class="week_day_name">Thursday</h1>
+    <p class="week_day_date">Month</p>
+  </div>
+  <div class="calendar_days">
+    <h1 class="week_day_name">Friday</h1>
+    <p class="week_day_date">Month</p>
+  </div>
+  <div class="calendar_days">
+    <h1 class="week_day_name">Saturday</h1>
+    <p class="week_day_date">Month</p>
+  </div>
+  <div class="calendar_days">
+    <h1 class="week_day_name">Sunday</h1>
+    <p class="week_day_date">Month</p>
+  </div>
+</div>
+<div class="calendar_hours_container">
+  <div class="calendar_hours_days">
+  </div>
+  <div class="calendar_hours_days">
+
+  </div>
+  <div class="calendar_hours_days">
+
+  </div>
+  <div class="calendar_hours_days">
+
+  </div>
+  <div class="calendar_hours_days">
+
+  </div>
+  <div class="calendar_hours_days">
+
+  </div>
+  <div class="calendar_hours_days">
+
+  </div>
+
+
+</div>
+
+  <div id="search_bar" class="search_bar">
+    <div class="search_bar-container">
+      <span class="close">&times;</span>
+      <div class="popupSearch" onclick="tasksDetailsPopup()">
+        <div class="popuptext">
+          <div class="title">
+            TASK DETAILS
+          </div>
+          <span id="taskTitle"></span><br>
+          <span id="taskDescription"></span><br>
+          <span id="responsibleUser"></span><br>
+          <span id="necessarySkills"></span><br>
+          <span id="deadlineDate"></span><br>
+          <span id="startTime"></span><br>
+          <span id="priority"></span><br>
+          <span id="noHoursToWork"></span><br>
+          <span id="progress"></span><br>
+        </div>
+      </div>
+      <div class="search_fields_row choose_skills">
+        <div id="listwrapper" style="width: 100%" class="listWrapper">
+          <input type="text" autocomplete="off" id="tasks" name="tasks" placeholder="Search Tasks"></input>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="notification_popup" class="search_bar">
+    <div class="search_bar-container">
+      <span class="close" id="close_notifications">&times;</span>
+      <div class="notifications_box">
+
+      </div>
+    </div>
+  </div>
+
+  <div id="addTaskWrapper" class="addTaskWrapper">
+    <div class="addTaskWrapper-container">
+      <span class="close">&times;</span>
+      <div class="popupCalendar">
+        <div class="popuptext">
+          <div class="title">
+            TASK DETAILS
+          </div>
+          <span id="taskTitleCalendar"></span><br>
+          <span id="taskDescriptionCalendar"></span><br>
+          <span id="responsibleUserCalendar"></span><br>
+          <span id="necessarySkillsCalendar"></span><br>
+          <span id="deadlineDateCalendar"></span><br>
+          <span id="priorityCalendar"></span><br>
+          <span id="noHoursToWorkCalendar"></span><br>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <script src="javascript/sidebars.js"></script>
+    <script src="javascript/home_user.js"></script>
+<!--<div class="notification_tag" id="notification body">-->
+<!--  <span id="notification_close">x</span>-->
+<!--  <h3>You have a new task</h3>-->
+<!--  <p>The best task ever is waiting you to create new things.</p>-->
+  <p onclick="showBoldNotificaiton(val)">Click here for more details</p>
+<!--</div>-->
+</body>
+</html>
